@@ -1,5 +1,5 @@
 # Plot.ly-Belly_Button_Biodiversity
-![](images/microbes-sem.jpg)
+![](Images/microbes-sem.jpg)
 
 
 ## Link to site: https://fabiola-c14.github.io/Belly_Button_Biodiversity/
@@ -31,3 +31,4 @@ The following data was used to create the bubble chart:
 * A demographic panel was created to display the sample metadata, i.e., an individual's demographic information.
 * The panel and all plots update when a sample is updated.
 
+![](Images/landing_page.PNG)

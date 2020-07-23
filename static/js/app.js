@@ -4,7 +4,6 @@ function init() {
 
     //Pull data from json file
     d3.json("data/samples.json").then((data) => {
-        //console.log(data)
 
     //Display ID selection    
         data.names.forEach(function(name) {
@@ -26,12 +25,13 @@ function updateInfo(id) {
     //Pull data from json file
     d3.json("data/samples.json").then((data) => {
         var sampleData=data.metadata;
-        // console.log(sampleData)
 
+        //Select id to filter sample values
         var result=sampleData.filter(row => row.id.toString()=== id)[0];
         var panelData=d3.select("#sample-metadata");
 
         panelData.html("");
+
         //Append demographic information on panel by ID
         Object.entries(result).forEach((key) => {
             panelData.append("h5").text(key[0].toUpperCase() + ":" + '\n' + key[1] + '\n');
@@ -48,20 +48,19 @@ function optionChanged(id) {
 
 //Display Bar chart
 function updateBarChart(id) {
+
     //Pull data from json file
     d3.json("data/samples.json").then((data) => {
-        //console.log(data);
 
+    //Select id to filter sample values
     var sampleIDs=data.samples.filter(row => row.id.toString()=== id)[0];
-        //console.log(sampleIDs)
      
-        //Display ID + OTU on the bar chart
+    //Display ID + OTU on the bar chart
     var otuData=sampleIDs.otu_ids.slice(0,10).reverse();
     var otuIDs=otuData.map(otuId => "OTU" +  " " + otuId)
-        //console.log(otuIDs)
 
+    //Select 10 values to display on graph but reversed
     var otuLabels=sampleIDs.otu_labels.slice(0,10).reverse();
-        //console.log(otuLabels)
 
     var sampleValues=sampleIDs.sample_values.slice(0,10).reverse();
         
@@ -89,19 +88,18 @@ function updateBarChart(id) {
 function updateBubbleChart(id) {
     //Pull data from json file
     d3.json("data/samples.json").then((data) => {
-        //console.log(data);
 
+    //Select id to filter sample values
     var sampleIDs=data.samples.filter(row => row.id.toString()=== id)[0];
-        //console.log(sampleIDs)
-
+    
+    //Extract Otu Ids to display on graph
     var otuData=sampleIDs.otu_ids;
-        //console.log(otuData)
-
+    
+    //Extract Otu labes to display on graph
     var otuLabels=sampleIDs.otu_labels;
-        //console.log(otuLabels)
-
+    
+    //Extract sample values to display on graph
     var sampleValues=sampleIDs.sample_values;
-        //console.log(sampleValues)
 
     var trace2 = {
         x: otuData,
@@ -132,16 +130,16 @@ function updateBubbleChart(id) {
 }
 
 //Create function to display guage chart
+
 function updateGuageChart(id) {
     //Pull data from json file
    d3.json("data/samples.json").then((data) => {
 
+    //Select id to filter sample values
     var allMetadata=data.metadata.filter(metaId => metaId.id.toString()=== id)[0];
-        //console.log(metadataID);
     
     //Extract wash frequency to display on chart
     var weekFreq=allMetadata.wfreq;
-        //console.log(weekFreq);
 
     var level=weekFreq*20;
     var degrees=180 - level,

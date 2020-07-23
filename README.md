@@ -1,4 +1,6 @@
 # Plot.ly-Belly_Button_Biodiversity
+![](images/microbes-sem.jpg)
+
 
 ## Link to site: https://fabiola-c14.github.io/Belly_Button_Biodiversity/
 

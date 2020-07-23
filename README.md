@@ -9,14 +9,23 @@ To create the dashboard the D3 library was used to read in samples.json.
 
 ### Bar Chart
 A horizontal bar chart was created to display the top 10 OTUs found in that individual:
-* The data in the sample_values field was used to create the bar chart.
-* The otu_ids were used as the labels for the bar chart.
-* The otu_labels were used as the hovertext for the chart.
+* The sample_values were used to create the bar chart
+* The otu_ids were used as the labels for the bar chart
+* The otu_labels were used as the hovertext for the chart
 
 ### Bubble Chart
 The following data was used to create the bubble chart:
-* Otu_ids were for the x values.
-* Sample_values for the y values.
-* Sample_values were for the marker size.
-* Otu_ids for the marker colors.
-* Otu_labels for the text values.
+* Otu_ids for the x values
+* Sample_values for the y values and marker size
+* Otu_ids for the marker colors
+* Otu_labels for the text values
+
+### Guage Chart
+* A guage chart was created to measure belly button washing frequency.
+* The guage code was extracted from the Plotly-Javascript site ( https://plot.ly/javascript/gauge-charts/) and modified to account for values ranging from 0 through 9.
+* The chart is updated when a new sample is selected.
+
+### Demographic Panel
+* A demographic panel was created to display the sample metadata, i.e., an individual's demographic information.
+* The panel and all plots update when a sample is updated.
+
